@@ -21,7 +21,7 @@ async function autenticar(req, res){
                 email: resp[0].email
             };
         
-            res.redirect('/');
+            res.redirect('/tarefas');
         }
         else{
             console.log('erro2');
