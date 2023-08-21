@@ -2,5 +2,14 @@
     <div id="logo">
         <img id="imagem" src="./icon.jpg" alt="">
     </div>
+    <% if(locals.layoutVariables.user){%>
+        <p>
+            <i class="bi-person" style="font-size: 1rem; color: red;"></i>
+            <%- locals.layoutVariables.user.nome %>
+            <a href="/logout" class="btn-primary" style="height: 1rem;">
+                <i class="bi-arrow-right" style="font-size: 1rem; height: 1rem; background-color: red;"></i>
+            </a>
+        </p>
+    <%}%>
     <div id="legenda"></div>
 </header>

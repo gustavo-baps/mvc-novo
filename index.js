@@ -63,10 +63,16 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res)=>{
     usuarioController.login(req, res);
 });
+app.get('/logout',(req, res)=>{
+    usuarioController.logout(req,res);
+})
 app.post('/login', (req, res)=>{
     console.log(req.body);
     usuarioController.autenticar(req, res);
 });
+app.get('/tarefas/delete/:id', (req,res) =>{
+    tarefaController.deleteTarefa(req, res);
+})
 
 app.get('/tarefas', tarefaController.getTarefas); 
 app.post('/tarefa', tarefaController.addTarefa); 

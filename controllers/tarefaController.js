@@ -15,10 +15,13 @@ function addTarefa(req, res) {
     res.redirect('/tarefas'); 
 } 
 
-function deleteTarefa(req, res) { 
-    const { id } = req.body; 
-    tarefas = tarefas.filter(tarefa => tarefa.id != id); 
-    res.redirect('/tarefas'); 
+async function deleteTarefa(req, res) { 
+    if(await Tarefa.deleteTarefa(req.params.id)){
+        res.redirect('/tarefas');
+    }
+    else{
+        res.redirect('/tarefas');
+    }
 }
 
 function updateTarefa(req, res) {
@@ -32,5 +35,6 @@ function updateTarefa(req, res) {
     });
     res.redirect('/tarefas');
 }
+
 
 module.exports = { getTarefas, addTarefa, deleteTarefa, updateTarefa};

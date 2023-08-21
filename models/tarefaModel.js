@@ -16,6 +16,16 @@ class Tarefa {
         let res = await db.query(`INSERT INTO tarefas (title) VALUES ('${this.title}')`);
         console.log(res)
     }
+
+    static async deleteTarefa(id){
+        const db = require('./db');
+        if(await db.query("DELETE FROM tarefas WHERE id = "+id)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 } 
     
 module.exports = Tarefa;
