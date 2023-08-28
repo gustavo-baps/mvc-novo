@@ -46,6 +46,10 @@ app.use((req, res, next)=>{
             title: 'Tarefas',
             user: req.session.usuarios
         };
+        if(req.session.msg){
+            res.locals.layoutVariables.msg = req.session.msg;
+            delete req.session.msg;
+        }
         next();
     }
 });

@@ -19,8 +19,15 @@ class Tarefa {
 
     static async deleteTarefa(id){
         const db = require('./db');
-        if(await db.query("DELETE FROM tarefas WHERE id = "+id)){
-            return true;
+        const resp = await db.query("DELETE FROM tarefas WHERE id = "+id);
+        if(resp){
+            console.log(resp);
+            if(resp.affectedRows > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else{
             return false;

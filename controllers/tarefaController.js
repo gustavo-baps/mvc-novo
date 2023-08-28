@@ -17,9 +17,11 @@ function addTarefa(req, res) {
 
 async function deleteTarefa(req, res) { 
     if(await Tarefa.deleteTarefa(req.params.id)){
+        req.session.msg = "Tarefa excluída com sucesso";
         res.redirect('/tarefas');
     }
     else{
+        req.session.msg = "a exclusão falhou"
         res.redirect('/tarefas');
     }
 }

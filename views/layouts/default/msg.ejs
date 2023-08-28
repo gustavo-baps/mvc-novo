@@ -1,0 +1,15 @@
+<div id="msg">
+    <% if(locals.layoutVariables.msg){ %>
+        <div class="alert alert-success" role="alert">
+            <%- locals.layoutVariables.msg %>
+        </div>
+        <script>
+            setTimeout(function(){
+                var msg = document.getElementById('msg');
+                if(msg){
+                    msg.innerHTML = '';
+                }
+            }, 5000);
+        </script>
+    <%}%>
+</div>
